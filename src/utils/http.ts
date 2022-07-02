@@ -20,7 +20,7 @@ export const http = async (
       Authorization: token ? `Bearer ${token}` : "",
       "Content-Type": data ? "application/json" : "",
     },
-    ...customConfig,
+    ...customConfig, //config指定其它请求方式会覆盖GET
   };
   if (config.method.toUpperCase() === "GET") {
     endpoint += `?${qs.stringify(data)}`;
